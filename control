@@ -1,0 +1,10 @@
+Package: ws.hbang.prethree
+Name: PreThree
+Pre-Depends: firmware (>= 8.0), gsc.main-screen-scale (>= 3)
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Retina HD icons for yet to be updated apps
+Maintainer: HASHBANG Productions <support@hbang.ws>
+Author: HASHBANG Productions <support@hbang.ws>
+Section: Tweaks
