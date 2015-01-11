@@ -96,7 +96,8 @@ UIImage *HBPTResizeImage(UIImage *oldImage, CGSize newSize) {
 		return [cache objectForKey:key];
 	}
 
-	UIImage *iTunesArtwork = [UIImage imageWithContentsOfFile:[self.application.bundleContainerPath stringByAppendingPathComponent:@"iTunesArtwork"]];
+	NSString *containerPath = [self.application respondsToSelector:@selector(bundleContainerPath)] ? self.application.bundleContainerPath : self.application.sandboxPath;
+	UIImage *iTunesArtwork = [UIImage imageWithContentsOfFile:[containerPath stringByAppendingPathComponent:@"iTunesArtwork"]];
 
 	if (!iTunesArtwork) {
 		NSLog(@"PreThree: failed to get iTunesArtwork for %@", self.application.bundleIdentifier);
@@ -115,10 +116,6 @@ UIImage *HBPTResizeImage(UIImage *oldImage, CGSize newSize) {
 
 %ctor {
 	cache = [[NSCache alloc] init];
-
-	if ([UIScreen mainScreen].scale < 3.f) {
-		NSLog(@"PreThree: huh, running on a %f screen?", [UIScreen mainScreen].scale);
-	}
 
 	%init;
 }

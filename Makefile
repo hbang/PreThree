@@ -1,4 +1,4 @@
-ARCHS = arm64
+TARGET = ::5.0
 
 include theos/makefiles/common.mk
 
